@@ -1,4 +1,4 @@
-PathFileType	4	(X/Y/Z)	data\static_markers.trc
+PathFileType	4	(X/Y/Z)	outputs\static_markers.trc
 DataRate	CameraRate	NumFrames	NumMarkers	Units	OrigDataRate	OrigDataStartFrame	OrigNumFrames
 360.000000	360.000000	11	45	m	360.000000	0	11
 Frame#	Time	C7			CLAV			LANK			LASI			LBHD			LELB			LFHD			LFIN			LFRM			LHEE			LKNE			LMANK			LMELB			LMKNE			LPSI			LSHO			LTHI			LTIB			LTOE			LUPA			LWRA			LWRB			RANK			RASI			RBAK			RBHD			RELB			RFHD			RFIN			RFRM			RHEE			RKNE			RMANK			RMELB			RMKNE			RPSI			RSHO			RTHI			RTIB			RTOE			RUPA			RWRA			RWRB			STRN			T10			
