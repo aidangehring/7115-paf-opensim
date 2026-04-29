@@ -40,6 +40,6 @@
 		<datafile>C:\Users\gehri\OneDrive - Liverpool John Moores University\Sports biomech\Assignment 2\opensim-paf\7115-paf-opensim\forces.sto</datafile>
 		<external_loads_model_kinematics_file/>
 		<!-- Optional low-pass cut-off frequency for filtering the model kinematics corresponding used to transform the point of application. A negative value results in no filtering. The default value is -1.0, so no filtering. -->
-		<lowpass_cutoff_frequency_for_load_kinematics>15</lowpass_cutoff_frequency_for_load_kinematics>
+		<lowpass_cutoff_frequency_for_load_kinematics>10</lowpass_cutoff_frequency_for_load_kinematics>
 	</ExternalLoads>
 </OpenSimDocument>
