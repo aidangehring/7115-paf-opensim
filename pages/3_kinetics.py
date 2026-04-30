@@ -29,6 +29,15 @@ if not os.path.exists(ID_PATH):
 
 df = get_id_data()
 
+body_mass = st.session_state.get("subject_mass")
+if body_mass:
+    moment_cols = [c for c in df.columns if c != "time"]
+    df = df.copy()
+    df[moment_cols] = df[moment_cols] / body_mass
+    moment_unit = "Nm/kg"
+else:
+    moment_unit = "Nm"
+
 
 def bilateral_fig(df, pairs, ylabel):
     n = len(pairs)
@@ -62,34 +71,34 @@ tab_hip, tab_knee, tab_ankle = st.tabs(["Hip", "Knee", "Ankle / Foot"])
 
 with tab_hip:
     pairs = [
-        ("hip_flexion_r_moment",   "hip_flexion_l_moment",   "Hip Flexion Moment (Nm)"),
-        ("hip_adduction_r_moment", "hip_adduction_l_moment", "Hip Adduction Moment (Nm)"),
-        ("hip_rotation_r_moment",  "hip_rotation_l_moment",  "Hip Rotation Moment (Nm)"),
+        ("hip_flexion_r_moment",   "hip_flexion_l_moment",   f"Hip Flexion Moment ({moment_unit})"),
+        ("hip_adduction_r_moment", "hip_adduction_l_moment", f"Hip Adduction Moment ({moment_unit})"),
+        ("hip_rotation_r_moment",  "hip_rotation_l_moment",  f"Hip Rotation Moment ({moment_unit})"),
     ]
     pairs = [(r, l, t) for r, l, t in pairs if r in df.columns or l in df.columns]
     if pairs:
-        st.pyplot(bilateral_fig(df, pairs, "Moment (Nm)"))
+        st.pyplot(bilateral_fig(df, pairs, f"Moment ({moment_unit})"))
     else:
         st.info("No hip moment columns found in ID output.")
 
 with tab_knee:
     pairs = [
-        ("knee_angle_r_moment", "knee_angle_l_moment", "Knee Flexion Moment (Nm)"),
+        ("knee_angle_r_moment", "knee_angle_l_moment", f"Knee Flexion Moment ({moment_unit})"),
     ]
     pairs = [(r, l, t) for r, l, t in pairs if r in df.columns or l in df.columns]
     if pairs:
-        st.pyplot(bilateral_fig(df, pairs, "Moment (Nm)"))
+        st.pyplot(bilateral_fig(df, pairs, f"Moment ({moment_unit})"))
     else:
         st.info("No knee moment columns found in ID output.")
 
 with tab_ankle:
     pairs = [
-        ("ankle_angle_r_moment",    "ankle_angle_l_moment",    "Ankle Moment (Nm)"),
-        ("subtalar_angle_r_moment", "subtalar_angle_l_moment", "Subtalar Moment (Nm)"),
-        ("mtp_angle_r_moment",      "mtp_angle_l_moment",      "MTP Moment (Nm)"),
+        ("ankle_angle_r_moment",    "ankle_angle_l_moment",    f"Ankle Moment ({moment_unit})"),
+        ("subtalar_angle_r_moment", "subtalar_angle_l_moment", f"Subtalar Moment ({moment_unit})"),
+        ("mtp_angle_r_moment",      "mtp_angle_l_moment",      f"MTP Moment ({moment_unit})"),
     ]
     pairs = [(r, l, t) for r, l, t in pairs if r in df.columns or l in df.columns]
     if pairs:
-        st.pyplot(bilateral_fig(df, pairs, "Moment (Nm)"))
+        st.pyplot(bilateral_fig(df, pairs, f"Moment ({moment_unit})"))
     else:
         st.info("No ankle/foot moment columns found in ID output.")

@@ -51,6 +51,7 @@ else:
             with st.status("Running pipeline…", expanded=True) as status:
                 st.write("⏳ Loading static trial…")
                 mass, t_start, t_end = load_static()
+                st.session_state["subject_mass"] = abs(mass)
                 st.write(f"✅ Static loaded — subject mass: **{abs(mass):.1f} kg**")
 
                 st.write("⏳ Loading dynamic trial…")
