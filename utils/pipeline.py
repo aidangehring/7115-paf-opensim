@@ -21,7 +21,8 @@ def run_scale(mass, t_start, t_end):
     modelScaler.setTimeRange(timeRange)
     modelScaler.setPreserveMassDist(True)
     modelScaler.setOutputModelFileName(scaled_model_path)
-    modelScaler.processModel(osimModel, "", abs(mass))
+    fresh_model = osim.Model(os.path.join(assets_path, "testing.osim"))
+    modelScaler.processModel(fresh_model, "", abs(mass))
 
     scaled_model = osim.Model(scaled_model_path)
     markerPlacer = scaleTool.getMarkerPlacer()

@@ -155,6 +155,22 @@
 									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
 									<markers> RASI RMKNE</markers>
 								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> RASI RTHI</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> RTHI RKNE</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> LASI LTHI</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> LTHI LKNE</markers>
+								</MarkerPair>
 							</objects>
 							<groups />
 						</MarkerPairSet>
@@ -222,6 +238,22 @@
 								<MarkerPair>
 									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
 									<markers> LKNE LANK</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> RKNE RTIB</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> RANK RTIB</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> LANK LTIB</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<!--Names of two markers, the distance between which is used to compute a body scale factor.-->
+									<markers> LKNE LTIB</markers>
 								</MarkerPair>
 							</objects>
 							<groups />
