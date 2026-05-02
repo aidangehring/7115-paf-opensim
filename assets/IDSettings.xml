@@ -2,7 +2,7 @@
 <OpenSimDocument Version="40500">
 	<InverseDynamicsTool name="Rajagopal2016">
 		<!--Name of the directory where results are written. Be default this is the directory in which the setup file is be  executed.-->
-		<results_directory>C:\Users\gehri\OneDrive - Liverpool John Moores University\Sports biomech\Assignment 2\opensim-paf\7115-paf-opensim\outputs</results_directory>
+		<results_directory>../outputs</results_directory>
 		<!--Name of the .osim file used to construct a model.-->
 		<model_file>Unassigned</model_file>
 		<!--Time range over which the inverse dynamics problem is solved.-->
