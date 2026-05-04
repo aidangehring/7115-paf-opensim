@@ -20,9 +20,11 @@ if "outputs_cleared" not in st.session_state:
     st.session_state["outputs_cleared"] = True
 
 pg = st.navigation([
-    st.Page("pages/1_Overview.py",   title="Overview",    icon="🏃"),
-    st.Page("pages/2_kinematics.py", title="Kinematics",  icon="📐"),
-    st.Page("pages/3_kinetics.py",   title="Kinetics",    icon="⚡"),
+    st.Page("pages/1_Overview.py",   title="Overview"),
+    st.Page("pages/2_kinematics.py", title="Kinematics"),
+    st.Page("pages/3_kinetics.py",   title="Kinetics"),
+    st.Page("pages/4_kinematic_sequencing.py"),
+    st.Page("pages/5_ground_reaction_force.py")
 ])
 
 pg.run()

@@ -4,7 +4,8 @@ import opensim as osim
 from utils.config import data_path, outputs_path, c3dFileAdapter, trcFileAdapter
 from utils.helpers import rotate_markers_z_to_y, rotate_forces_z_to_y, zero_unloaded_plates, filter_forces, filter_markers
 
-
+#* ----- Load static trial marker and forces, rotate to opensim convention, ------
+#* ----- Apply filter, and calculate subject mass from static weight -------------
 def load_static():
     static_c3d_file = next(
         (os.path.join(data_path, f) for f in os.listdir(data_path)
@@ -40,7 +41,10 @@ def load_static():
 
     return mass, t_start, t_end
 
-
+#* ----- Load dynamic markers and forces, rotate to opensim coordinate system -------
+#* ----- Apply filters, and apply a zero to the plate when there is no contact. -----
+#* ----- Without this zeroing, the COP data would read as undefined, causing large --
+#* ----- Spikes in GRF data ---------------------------------------------------------
 def load_dynamic():
     dynamic_c3d_file = next(
         (os.path.join(data_path, f) for f in os.listdir(data_path)

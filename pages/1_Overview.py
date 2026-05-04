@@ -4,7 +4,7 @@ from utils.config import data_path, outputs_path
 from utils.data_loader import load_static, load_dynamic
 from utils.pipeline import run_scale, run_ik, run_id
 
-st.title("Biomechanics Analysis Pipeline")
+st.title("Baseball Pitch Analysis Pipeline")
 st.caption("Upload your C3D files, then run the OpenSim pipeline.")
 
 # ── File upload ───────────────────────────────────────────────────────────────
@@ -49,26 +49,26 @@ else:
     if st.button("▶  Run Full Pipeline", type="primary"):
         try:
             with st.status("Running pipeline…", expanded=True) as status:
-                st.write("⏳ Loading static trial…")
+                st.write("Loading static trial…")
                 mass, t_start, t_end = load_static()
                 st.session_state["subject_mass"] = abs(mass)
-                st.write(f"✅ Static loaded — subject mass: **{abs(mass):.1f} kg**")
+                st.write(f"Static loaded — subject mass: **{abs(mass):.1f} kg**")
 
-                st.write("⏳ Loading dynamic trial…")
+                st.write("Loading dynamic trial…")
                 dynamic_forcesTable = load_dynamic()
-                st.write("✅ Dynamic trial loaded.")
+                st.write("Dynamic trial loaded.")
 
-                st.write("⏳ Scaling model…")
+                st.write("Scaling model…")
                 run_scale(mass, t_start, t_end)
-                st.write("✅ Model scaled and markers placed.")
+                st.write("Model scaled and markers placed.")
 
-                st.write("⏳ Running inverse kinematics…")
+                st.write("Running inverse kinematics…")
                 run_ik()
-                st.write("✅ Inverse kinematics complete.")
+                st.write("Inverse kinematics complete.")
 
-                st.write("⏳ Running inverse dynamics…")
+                st.write("Running inverse dynamics…")
                 run_id(dynamic_forcesTable)
-                st.write("✅ Inverse dynamics complete.")
+                st.write("Inverse dynamics complete.")
 
                 status.update(label="Pipeline complete!", state="complete")
 

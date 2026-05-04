@@ -3,6 +3,13 @@ import opensim as osim
 from utils.config import assets_path, outputs_path, stoFileAdapter, osimModel, scaleTool
 
 
+#! --- This file calls opensim API to carry out modelling, inverse kinematics and ---
+#! --- inverse dynamics. The API acts as the backend, and can be seen running in  ---
+#! --- the terminal when initialized in the app. Animation is possible, though the --
+#! --- Output is computation heavy and was too slow for this pipeline.          -----
+
+
+#* ---- Function used to compute scaling -----------------
 def run_scale(mass, t_start, t_end):
     timeRange = osim.ArrayDouble()
     timeRange.set(0, t_start)
@@ -34,7 +41,7 @@ def run_scale(mass, t_start, t_end):
     markerPlacer.processModel(scaled_model)
     scaled_model.printToXML(scaled_model_path)
 
-
+#* ----- Function used to run inverse kinematics-------------
 def run_ik():
     model = osim.Model(os.path.join(outputs_path, "scaled_model_placed.osim"))
     ikTool = osim.InverseKinematicsTool()
@@ -43,7 +50,7 @@ def run_ik():
     ikTool.setOutputMotionFileName(os.path.join(outputs_path, "ik_motion.mot"))
     ikTool.run()
 
-
+#* ----- Function used to run inverse dynamics -------------------
 def run_id(dynamic_forcesTable):
     stoFileAdapter.write(
         dynamic_forcesTable.flatten(),
@@ -67,3 +74,5 @@ def run_id(dynamic_forcesTable):
     id_tool.setExternalLoadsFileName(temp_xml)
     id_tool.run()
     os.remove(temp_xml)
+
+
