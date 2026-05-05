@@ -67,5 +67,5 @@ def load_dynamic():
     dynamic_forcesTable = c3dFileAdapter.getForcesTable(dynamic_tables)
     dynamic_forcesTable = rotate_forces_z_to_y(dynamic_forcesTable)
     dynamic_forcesTable = zero_unloaded_plates(dynamic_forcesTable, threshold=20.0)
-    dynamic_forcesTable = filter_forces(dynamic_forcesTable, cutoff_hz=10.0)
+    dynamic_forcesTable = filter_forces(dynamic_forcesTable)
     return dynamic_forcesTable

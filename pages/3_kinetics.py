@@ -5,7 +5,7 @@ from utils.helpers import load_mot, bilateral_fig
 
 st.title("Inverse Dynamics")
 
-#-- Set to empty until the pipeline is run ------------------------------
+#*-- Set to empty until the pipeline is run ------------------------------
 @st.cache_data
 def get_id_data():
     return load_mot(id_path)
@@ -22,10 +22,10 @@ if not st.session_state.get("pipeline_complete", False):
 if not os.path.exists(id_path):
     st.warning("ID output file not found. Re-run the pipeline.")
     st.stop()
-#------- get id outputs into a dataframe ----------------
+#*------- get id outputs into a dataframe ----------------
 df = get_id_data()
 
-#------- get body mass from static weight extraction to normalize ID values ------------
+#*------- get body mass from static weight extraction to normalize ID values ------------
 body_mass = st.session_state.get("subject_mass")
 if body_mass:
     moment_cols = [c for c in df.columns if c != "time"]
@@ -35,12 +35,12 @@ if body_mass:
 else:
     moment_unit = "Nm"
 
-# --------------- Init selection tabs ----------------------------
+#* --------------- Init selection tabs ----------------------------
 tab_hip, tab_knee, tab_ankle = st.tabs(
     ["Hip", "Knee", "Ankle"]
 )
 
-# ------------- Define plot outputs for each tab ----------------------------------------
+#* ------------- Define plot outputs for each tab ----------------------------------------
 with tab_hip:
     pairs = [(r, l, t) for r, l, t in [
         ("hip_flexion_r_moment",   "hip_flexion_l_moment",   f"Hip Flexion Moment ({moment_unit}) (Flex+)"),

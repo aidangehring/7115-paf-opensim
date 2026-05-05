@@ -7,7 +7,7 @@ from utils.pipeline import run_scale, run_ik, run_id
 st.title("Baseball Pitch Analysis Pipeline")
 st.caption("Upload your C3D files, then run the OpenSim pipeline.")
 
-# ── File upload ───────────────────────────────────────────────────────────────
+#* ---- upload files to the drop boxes in the app front page ------------------
 st.subheader("1. Upload C3D Files")
 col_static, col_dynamic = st.columns(2)
 
@@ -41,7 +41,7 @@ st.divider()
 
 
 
-# ── Run pipeline ──────────────────────────────────────────────────────────────
+#* ----- Button to run pipeline once files are uploaded --------------------
 st.subheader("2. Run")
 if not (static_ready and dynamic_ready):
     st.info("Upload both C3D files above before running the pipeline.")

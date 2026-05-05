@@ -5,7 +5,7 @@ from utils.helpers import load_mot, angular_velocity, find_peak_er, bilateral_fi
 
 st.title("Inverse Kinematics")
 
-#-- Set to empty until the pipeline is run ------------------------------
+#*-- Set to empty until the pipeline is run ------------------------------
 @st.cache_data
 def get_ik_data():
     return load_mot(ik_path)
@@ -23,10 +23,10 @@ if not os.path.exists(ik_path):
     st.warning("IK output file not found. Re-run the pipeline.")
     st.stop()
 
-#------- get ik outputs into a dataframe ----------------
+#*------- get ik outputs into a dataframe ----------------
 df   = get_ik_data()
 
-# ------ Init interactive plot setup -----------------------------------------------
+#* ------ Init interactive plot setup -----------------------------------------------
 view    = st.radio("Display", ["Joint Angle", "Angular Velocity"], horizontal=True)
 plot_df = angular_velocity(df) if view == "Angular Velocity" else df
 ylabel  = "Angular Velocity (°/s)" if view == "Angular Velocity" else "Angle (°)"
@@ -34,7 +34,7 @@ ylabel  = "Angular Velocity (°/s)" if view == "Angular Velocity" else "Angle (�
 tab_pelvis, tab_hip, tab_knee, tab_ankle, tab_shoulder, tab_elbow = st.tabs(
     ["Pelvis", "Hip", "Knee", "Ankle", "Shoulder", "Elbow"]
 )
-# ---------- Define output plots for each selectable tab -------------------------------------------
+#* ---------- Define output plots for each selectable tab -------------------------------------------
 with tab_hip:
     pairs = [(r, l, t) for r, l, t in [
         ("hip_flexion_r",   "hip_flexion_l",   "Hip Flexion / Extension (Flex+)"),

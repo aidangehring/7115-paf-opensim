@@ -20,7 +20,7 @@ def run_scale(mass, t_start, t_end):
     static_trc_path          = os.path.join(outputs_path, "static_markers.trc")
 
     scaleTool.setSubjectMass(abs(mass))
-    scaleTool.getGenericModelMaker().setModelFileName(os.path.join(assets_path, "testing.osim"))
+    scaleTool.getGenericModelMaker().setModelFileName(os.path.join(assets_path, "model.osim"))
 
     modelScaler = scaleTool.getModelScaler()
     modelScaler.setApply(True)
@@ -28,7 +28,7 @@ def run_scale(mass, t_start, t_end):
     modelScaler.setTimeRange(timeRange)
     modelScaler.setPreserveMassDist(True)
     modelScaler.setOutputModelFileName(scaled_model_path)
-    fresh_model = osim.Model(os.path.join(assets_path, "testing.osim"))
+    fresh_model = osim.Model(os.path.join(assets_path, "model.osim"))
     modelScaler.processModel(fresh_model, "", abs(mass))
 
     scaled_model = osim.Model(scaled_model_path)
