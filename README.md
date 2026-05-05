@@ -1,4 +1,4 @@
-# MSc Sports Biomehcnaics Automated Report Coursework- Automated Baseball Pitch Analysis
+# MSc Sports Biomechanics Automated Report Coursework- Automated Baseball Pitch Analysis
 
 ### Acknowledgement of data usage
 The data for this assignment was taken from Driveline OpenBiomechanics https://github.com/drivelineresearch/openbiomechanics. 
